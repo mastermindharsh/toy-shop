@@ -1,0 +1,46 @@
+Drop database g_shop;
+
+Create database g_shop;
+
+use g_shop;
+
+create table customer
+(
+c_no varchar (6) primary key,
+c_name varchar (20),
+c_address varchar (15),
+c_phoneno varchar (15),
+date varchar(50)
+);
+
+create table games
+(
+g_id varchar (10) primary key,
+g_name varchar(15),
+g_brand varchar (15),
+g_colour varchar (10),
+g_quantity varchar(5),
+cost decimal(8,2)
+);
+
+create table invoices
+(
+invoice_no int(6)primary key,
+g_id varchar(10),
+quantity int(5),
+c_no varchar(6),
+discount int(6),
+amount int(5),
+foreign key(g_id) references games(g_id) on delete cascade on update cascade
+);
+
+create Table password
+(
+user_id varchar(20),
+password varchar(14)
+);
+
+
+
+
+  
